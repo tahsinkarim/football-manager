@@ -8,6 +8,7 @@ for (button of buttons){
             alert('Maximum player already added')
             return
         }
+        e.target.disabled = true;
         const playerName = e.target.parentNode.childNodes[1].innerText
         const li = document.createElement('li')
         li.innerText = playerName
@@ -20,12 +21,13 @@ for (button of buttons){
 // Calculate
 document.getElementById('btn-calculate').addEventListener('click', function(){
    const perPlayer = valueToInt('per-player');
+   const listLength = selected.childElementCount
 
    const playerExpenses = document.getElementById('player-expenses');
     if (isNaN(perPlayer) || perPlayer < 0 ){
         alert('Enter a Valid Number');
     } else {
-        playerExpenses.innerText = perPlayer * 5;
+        playerExpenses.innerText = perPlayer * listLength;
     }
 })
 
